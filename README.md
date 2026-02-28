@@ -48,6 +48,13 @@ npm install
 npm run dev
 ```
 
+
+## Team images (UI branding)
+- Add your provided photos to `frontend/public/images/` as:
+  - `ai-agent.jpg`
+  - `ceo-rohit-mehra.jpg`
+- The UI will permanently load them in the hero section.
+
 ## Environment variables
 - `LLM_API_KEY` (optional for real model calls; mock response used if omitted)
 - `LLM_API_URL` (optional override)

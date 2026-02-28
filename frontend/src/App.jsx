@@ -4,6 +4,21 @@ import AnalyticsPanel from './components/AnalyticsPanel'
 import FeedbackPanel from './components/FeedbackPanel'
 import { useAuth } from './context/AuthContext'
 
+function TeamCard({ title, name, img, fallback }) {
+  return (
+    <article className="team-card">
+      <img src={img} alt={name} onError={(e) => { e.currentTarget.src = fallback }} />
+      <div>
+        <h4>{title}</h4>
+        <p>{name}</p>
+      </div>
+    </article>
+  )
+}
+
+const FALLBACK_AGENT = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="%23121d38"/><text x="50%" y="50%" fill="%23c6d8ff" font-size="26" text-anchor="middle" dominant-baseline="middle">AI Agent</text></svg>'
+const FALLBACK_CEO = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="%23172f2f"/><text x="50%" y="50%" fill="%23d9fff6" font-size="24" text-anchor="middle" dominant-baseline="middle">Rohit Mehra</text></svg>'
+
 export default function App() {
   const { token } = useAuth()
 
@@ -18,14 +33,18 @@ export default function App() {
               explainable intelligence, and feedback-powered optimization.
             </p>
           </div>
+          <div className="hero-team">
+            <TeamCard title="AI Agent" name="MakeItDone Core Agent" img="/images/ai-agent.jpg" fallback={FALLBACK_AGENT} />
+            <TeamCard title="CEO" name="Rohit Mehra" img="/images/ceo-rohit-mehra.jpg" fallback={FALLBACK_CEO} />
+          </div>
         </div>
       </section>
 
       {!token ? (
-        <section className="grid">
-          <div className="panel">
+        <section className="grid auth-grid">
+          <div className="panel wide-panel">
             <h2>Secure Agent Access</h2>
-            <p className="note">Enterprise-ready authentication with role-aware operations.</p>
+            <p className="note">Now includes dedicated registration column + login column for direct onboarding.</p>
             <LoginForm />
           </div>
           <div className="panel">
@@ -35,11 +54,12 @@ export default function App() {
               <div>• Domain-specific workflows for healthcare, finance, sales, and support</div>
               <div>• Explainability trace + sentiment + cost telemetry</div>
               <div>• Continuous learning from structured user feedback</div>
+              <div>• Full-page responsive dashboard layout (desktop + mobile)</div>
             </div>
           </div>
         </section>
       ) : (
-        <section className="grid">
+        <section className="grid app-grid">
           <div className="stack">
             <div className="panel"><ChatPanel /></div>
             <div className="panel"><FeedbackPanel /></div>
