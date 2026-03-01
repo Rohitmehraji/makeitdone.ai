@@ -49,6 +49,13 @@ npm run dev
 ```
 
 
+
+### If UI still shows old screen (no register/photos)
+1. Stop old dev server processes.
+2. Run frontend again and note the final port (Vite can switch from 5173 to 5174 if busy).
+3. Open the exact printed URL and hard refresh (`Ctrl+F5`).
+4. Confirm top banner shows `Build: ui-reg-photo-fix-2026-03-01`.
+
 ## Team images (UI branding)
 - Auth flow now has dedicated **Register** and **Login** screens in the frontend.
 - Add your provided photos to `frontend/public/images/` as:

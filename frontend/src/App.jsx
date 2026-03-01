@@ -5,10 +5,14 @@ import AnalyticsPanel from './components/AnalyticsPanel'
 import FeedbackPanel from './components/FeedbackPanel'
 import { useAuth } from './context/AuthContext'
 
-function TeamCard({ title, name, img }) {
+const UI_BUILD = 'ui-reg-photo-fix-2026-03-01'
+const AGENT_FALLBACK = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='100%' height='100%' fill='%23263f7f'/><text x='50%' y='50%' fill='white' text-anchor='middle' dominant-baseline='middle' font-size='36'>AI Agent</text></svg>"
+const CEO_FALLBACK = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='100%' height='100%' fill='%231f6f65'/><text x='50%' y='50%' fill='white' text-anchor='middle' dominant-baseline='middle' font-size='34'>Rohit Mehra</text></svg>"
+
+function TeamCard({ title, name, img, fallback }) {
   return (
     <article className="team-card">
-      <img src={img} alt={name} />
+      <img src={img} alt={name} onError={(e) => { e.currentTarget.src = fallback }} />
       <div>
         <h4>{title}</h4>
         <p>{name}</p>
@@ -30,10 +34,11 @@ export default function App() {
               Build a comprehensive AI agent platform. Ultra-modern multi-domain orchestration,
               explainable intelligence, and feedback-powered optimization.
             </p>
+            <p className="build-chip">Build: {UI_BUILD}</p>
           </div>
           <div className="hero-team">
-            <TeamCard title="AI Agent" name="MakeItDone Core Agent" img="/images/ai-agent.svg" />
-            <TeamCard title="CEO" name="Rohit Mehra" img="/images/ceo-rohit-mehra.svg" />
+            <TeamCard title="AI Agent" name="MakeItDone Core Agent" img="/images/ai-agent.svg" fallback={AGENT_FALLBACK} />
+            <TeamCard title="CEO" name="Rohit Mehra" img="/images/ceo-rohit-mehra.svg" fallback={CEO_FALLBACK} />
           </div>
         </div>
       </section>
@@ -42,8 +47,7 @@ export default function App() {
         <section className="grid auth-grid">
           <div className="panel wide-panel">
             <h2>Secure Agent Access</h2>
-            <p className="note">Register first in the right column, then login in the left column.</p>
-
+            <p className="note">✅ Register is always visible in the right card. Login is in the left card.</p>
             <div className="auth-columns">
               <LoginForm />
               <RegistrationForm />
@@ -57,6 +61,7 @@ export default function App() {
               <div>• Explainability trace + sentiment + cost telemetry</div>
               <div>• Continuous learning from structured user feedback</div>
               <div>• Full-page responsive dashboard layout (desktop + mobile)</div>
+              <div>• If this text is visible, you are on the latest UI build.</div>
             </div>
           </div>
         </section>

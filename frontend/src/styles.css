@@ -24,7 +24,7 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-.app-shell { width: min(1700px, 96vw); min-height: 100vh; margin: 0 auto; padding: 22px; }
+.app-shell { width: min(1700px, 98vw); min-height: 100vh; margin: 0 auto; padding: 22px; }
 .hero { border: 1px solid rgba(255,255,255,.2); background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04)); backdrop-filter: blur(16px) saturate(1.3); border-radius: 26px; padding: 24px; overflow: hidden; box-shadow: 0 16px 50px rgba(0,0,0,.35); }
 .brand-row { display: grid; grid-template-columns: 1.6fr 1fr; align-items: center; gap: 20px; }
 .brand { font-size: clamp(30px, 3vw, 44px); font-weight: 800; }
@@ -32,8 +32,8 @@ body {
 .tagline { color: var(--muted); margin-top: 8px; font-size: clamp(15px,1.1vw,20px); }
 
 .hero-team { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.team-card { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); border-radius: 16px; padding: 10px; display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center; }
-.team-card img { width: 110px; height: 110px; border-radius: 16px; object-fit: cover; border: 1px solid rgba(255,255,255,.2); }
+.team-card { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); border-radius: 16px; padding: 10px; display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; }
+.team-card img { width: 130px; height: 130px; border-radius: 16px; object-fit: cover; border: 1px solid rgba(255,255,255,.2); }
 .team-card h4 { margin: 0 0 4px; }
 .team-card p { margin: 0; color: var(--muted); font-size: 14px; }
 
@@ -44,7 +44,7 @@ body {
 .stack { display: grid; gap: 14px; }
 
 .auth-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
-.auth-card { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 14px; padding: 14px; }
+.auth-card { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 14px; padding: 14px; min-height: 320px; }
 .auth-card h3 { margin: 0 0 6px; }
 
 input, textarea, button, select { font: inherit; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); }
@@ -69,3 +69,7 @@ button:disabled { opacity: .7; cursor: not-allowed; }
 @media (max-width: 760px) {
   .hero-team, .row { grid-template-columns: 1fr; }
 }
+
+.build-chip { display: inline-block; margin-top: 10px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: #c7d6ff; font-size: 12px; }
+
+.auth-grid .panel { min-height: 420px; }
