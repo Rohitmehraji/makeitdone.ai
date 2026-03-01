@@ -2,9 +2,9 @@
 
 Place your real images with these exact filenames so the UI permanently shows them:
 
-- `ai-agent.jpg`
-- `ceo-rohit-mehra.jpg`
+- `ai-agent.svg`
+- `ceo-rohit-mehra.svg`
 
 The app already references these paths:
-- `/images/ai-agent.jpg`
-- `/images/ceo-rohit-mehra.jpg`
+- `/images/ai-agent.svg`
+- `/images/ceo-rohit-mehra.svg`

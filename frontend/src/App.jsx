@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
 import ChatPanel from './components/ChatPanel'
@@ -6,10 +5,10 @@ import AnalyticsPanel from './components/AnalyticsPanel'
 import FeedbackPanel from './components/FeedbackPanel'
 import { useAuth } from './context/AuthContext'
 
-function TeamCard({ title, name, img, fallback }) {
+function TeamCard({ title, name, img }) {
   return (
     <article className="team-card">
-      <img src={img} alt={name} onError={(e) => { e.currentTarget.src = fallback }} />
+      <img src={img} alt={name} />
       <div>
         <h4>{title}</h4>
         <p>{name}</p>
@@ -18,20 +17,8 @@ function TeamCard({ title, name, img, fallback }) {
   )
 }
 
-const FALLBACK_AGENT = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="%23121d38"/><text x="50%" y="50%" fill="%23c6d8ff" font-size="26" text-anchor="middle" dominant-baseline="middle">AI Agent</text></svg>'
-const FALLBACK_CEO = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="%23172f2f"/><text x="50%" y="50%" fill="%23d9fff6" font-size="24" text-anchor="middle" dominant-baseline="middle">Rohit Mehra</text></svg>'
-
 export default function App() {
   const { token } = useAuth()
-  const [authScreen, setAuthScreen] = useState('login')
-  const [registeredEmail, setRegisteredEmail] = useState('')
-  const [authNotice, setAuthNotice] = useState('')
-
-  const handleRegistered = (email) => {
-    setRegisteredEmail(email)
-    setAuthNotice('Registration successful. Please login with your new account.')
-    setAuthScreen('login')
-  }
 
   return (
     <main className="app-shell">
@@ -45,8 +32,8 @@ export default function App() {
             </p>
           </div>
           <div className="hero-team">
-            <TeamCard title="AI Agent" name="MakeItDone Core Agent" img="/images/ai-agent.jpg" fallback={FALLBACK_AGENT} />
-            <TeamCard title="CEO" name="Rohit Mehra" img="/images/ceo-rohit-mehra.jpg" fallback={FALLBACK_CEO} />
+            <TeamCard title="AI Agent" name="MakeItDone Core Agent" img="/images/ai-agent.svg" />
+            <TeamCard title="CEO" name="Rohit Mehra" img="/images/ceo-rohit-mehra.svg" />
           </div>
         </div>
       </section>
@@ -55,20 +42,12 @@ export default function App() {
         <section className="grid auth-grid">
           <div className="panel wide-panel">
             <h2>Secure Agent Access</h2>
-            <p className="note">Use Register to create an account, then switch to Login.</p>
+            <p className="note">Register first in the right column, then login in the left column.</p>
 
-            <div className="auth-switch">
-              <button type="button" className={authScreen === 'login' ? 'tab active' : 'tab'} onClick={() => setAuthScreen('login')}>Login</button>
-              <button type="button" className={authScreen === 'register' ? 'tab active' : 'tab'} onClick={() => setAuthScreen('register')}>Register</button>
+            <div className="auth-columns">
+              <LoginForm />
+              <RegistrationForm />
             </div>
-
-            {authNotice && <p className="ok-text">{authNotice}</p>}
-
-            {authScreen === 'login' ? (
-              <LoginForm defaultEmail={registeredEmail} />
-            ) : (
-              <RegistrationForm onRegistered={handleRegistered} />
-            )}
           </div>
           <div className="panel">
             <h2>Platform Highlights</h2>

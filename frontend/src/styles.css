@@ -1,3 +1,4 @@
+
 :root {
   --bg-0: #05070f;
   --bg-1: #0b1220;
@@ -9,7 +10,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html, body, #root { min-height: 100%; }
 
 body {
@@ -24,150 +24,48 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-.app-shell {
-  width: min(1700px, 96vw);
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 22px;
-}
-
-.hero {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
-  backdrop-filter: blur(16px) saturate(1.3);
-  border-radius: 26px;
-  padding: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 50px rgba(0,0,0,0.35);
-}
-
-.brand-row {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  align-items: center;
-  gap: 20px;
-}
-
-.brand {
-  font-size: clamp(30px, 3vw, 44px);
-  font-weight: 800;
-}
-
+.app-shell { width: min(1700px, 96vw); min-height: 100vh; margin: 0 auto; padding: 22px; }
+.hero { border: 1px solid rgba(255,255,255,.2); background: linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04)); backdrop-filter: blur(16px) saturate(1.3); border-radius: 26px; padding: 24px; overflow: hidden; box-shadow: 0 16px 50px rgba(0,0,0,.35); }
+.brand-row { display: grid; grid-template-columns: 1.6fr 1fr; align-items: center; gap: 20px; }
+.brand { font-size: clamp(30px, 3vw, 44px); font-weight: 800; }
 .brand span { color: var(--accent); }
 .tagline { color: var(--muted); margin-top: 8px; font-size: clamp(15px,1.1vw,20px); }
 
 .hero-team { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-.team-card {
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 84px 1fr;
-  gap: 10px;
-  align-items: center;
-}
-
-.team-card img {
-  width: 84px;
-  height: 84px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
+.team-card { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); border-radius: 16px; padding: 10px; display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center; }
+.team-card img { width: 110px; height: 110px; border-radius: 16px; object-fit: cover; border: 1px solid rgba(255,255,255,.2); }
 .team-card h4 { margin: 0 0 4px; }
 .team-card p { margin: 0; color: var(--muted); font-size: 14px; }
 
-.grid {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 18px;
-}
-
-.panel {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 18px;
-}
-
+.grid { margin-top: 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+.panel { border: 1px solid rgba(255,255,255,.16); background: var(--glass); backdrop-filter: blur(14px); border-radius: 20px; padding: 18px; }
 .wide-panel { min-height: 420px; }
-
-.auth-switch {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 10px 0 14px;
-}
-
-.tab {
-  background: rgba(255,255,255,0.08);
-  color: var(--text);
-}
-
-.tab.active {
-  background: linear-gradient(140deg, var(--primary), #8f8dff);
-  color: #061223;
-}
-
 .panel h2 { margin-top: 0; }
 .stack { display: grid; gap: 14px; }
 
-
-.auth-card {
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.04);
-  border-radius: 14px;
-  padding: 14px;
-}
-
+.auth-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
+.auth-card { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 14px; padding: 14px; }
 .auth-card h3 { margin: 0 0 6px; }
 
-input, textarea, button, select {
-  font: inherit;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-input, textarea, select {
-  width: 100%;
-  color: var(--text);
-  background: rgba(5,10,20,0.55);
-  padding: 11px 12px;
-}
-
+input, textarea, button, select { font: inherit; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); }
+input, textarea, select { width: 100%; color: var(--text); background: rgba(5,10,20,.55); padding: 11px 12px; }
 textarea { min-height: 92px; resize: vertical; }
-
-button {
-  padding: 10px 14px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: linear-gradient(140deg, var(--primary), #8f8dff);
-  color: #061223;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-button:disabled { opacity: 0.7; cursor: not-allowed; }
+button { padding: 10px 14px; border: 1px solid rgba(255,255,255,.25); background: linear-gradient(140deg, var(--primary), #8f8dff); color: #061223; font-weight: 700; cursor: pointer; }
+button:disabled { opacity: .7; cursor: not-allowed; }
 
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .chatlog { display: grid; gap: 10px; max-height: 340px; overflow: auto; }
-.bubble { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 10px; }
-.kpi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.kpi-card { border-radius: 14px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); padding: 10px; }
+.bubble { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 10px; }
+.kpi { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.kpi-card { border-radius: 14px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); padding: 10px; }
 .note { color: var(--muted); font-size: 13px; }
-.ok-text { color: #8effd8; margin: 0; grid-column: 1 / -1; }
-.error-text { color: #ff9db4; margin: 0; grid-column: 1 / -1; }
+.ok-text { color: #8effd8; margin: 0; }
+.error-text { color: #ff9db4; margin: 0; }
 
 @media (max-width: 1100px) {
   .brand-row { grid-template-columns: 1fr; }
-  .hero-team { grid-template-columns: 1fr 1fr; }
-  .grid { grid-template-columns: 1fr; }
+  .grid, .auth-columns { grid-template-columns: 1fr; }
 }
-
 @media (max-width: 760px) {
-  .hero-team, .auth-columns, .row { grid-template-columns: 1fr; }
+  .hero-team, .row { grid-template-columns: 1fr; }
 }

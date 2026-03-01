@@ -52,8 +52,8 @@ npm run dev
 ## Team images (UI branding)
 - Auth flow now has dedicated **Register** and **Login** screens in the frontend.
 - Add your provided photos to `frontend/public/images/` as:
-  - `ai-agent.jpg`
-  - `ceo-rohit-mehra.jpg`
+  - `ai-agent.svg`
+  - `ceo-rohit-mehra.svg`
 - The UI will permanently load them in the hero section.
 
 ## Environment variables
