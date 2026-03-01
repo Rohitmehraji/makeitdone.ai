@@ -24,7 +24,7 @@ from app.services.agent import call_language_model, classify_sentiment, estimate
 router = APIRouter()
 
 
-@router.post("/auth/register", response_model=UserResponse)
+@router.post("/auth/register", response_model=UserResponse, status_code=201)
 def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     exists = db.query(User).filter(User.email == payload.email).first()
     if exists:

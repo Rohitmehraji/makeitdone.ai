@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import LoginForm from './components/LoginForm'
+import RegistrationForm from './components/RegistrationForm'
 import ChatPanel from './components/ChatPanel'
 import AnalyticsPanel from './components/AnalyticsPanel'
 import FeedbackPanel from './components/FeedbackPanel'
@@ -21,6 +23,15 @@ const FALLBACK_CEO = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000
 
 export default function App() {
   const { token } = useAuth()
+  const [authScreen, setAuthScreen] = useState('login')
+  const [registeredEmail, setRegisteredEmail] = useState('')
+  const [authNotice, setAuthNotice] = useState('')
+
+  const handleRegistered = (email) => {
+    setRegisteredEmail(email)
+    setAuthNotice('Registration successful. Please login with your new account.')
+    setAuthScreen('login')
+  }
 
   return (
     <main className="app-shell">
@@ -44,8 +55,20 @@ export default function App() {
         <section className="grid auth-grid">
           <div className="panel wide-panel">
             <h2>Secure Agent Access</h2>
-            <p className="note">Now includes dedicated registration column + login column for direct onboarding.</p>
-            <LoginForm />
+            <p className="note">Use Register to create an account, then switch to Login.</p>
+
+            <div className="auth-switch">
+              <button type="button" className={authScreen === 'login' ? 'tab active' : 'tab'} onClick={() => setAuthScreen('login')}>Login</button>
+              <button type="button" className={authScreen === 'register' ? 'tab active' : 'tab'} onClick={() => setAuthScreen('register')}>Register</button>
+            </div>
+
+            {authNotice && <p className="ok-text">{authNotice}</p>}
+
+            {authScreen === 'login' ? (
+              <LoginForm defaultEmail={registeredEmail} />
+            ) : (
+              <RegistrationForm onRegistered={handleRegistered} />
+            )}
           </div>
           <div className="panel">
             <h2>Platform Highlights</h2>

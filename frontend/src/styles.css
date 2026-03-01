@@ -96,14 +96,27 @@ body {
 }
 
 .wide-panel { min-height: 420px; }
+
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0 14px;
+}
+
+.tab {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+.tab.active {
+  background: linear-gradient(140deg, var(--primary), #8f8dff);
+  color: #061223;
+}
+
 .panel h2 { margin-top: 0; }
 .stack { display: grid; gap: 14px; }
 
-.auth-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
 
 .auth-card {
   border: 1px solid rgba(255,255,255,0.12);
